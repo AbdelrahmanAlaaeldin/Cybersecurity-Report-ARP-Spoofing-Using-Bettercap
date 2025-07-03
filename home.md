@@ -156,7 +156,7 @@ This ARP spoofing attack aligns with the following techniques and tactics from t
   - **Technique: Adversary-in-the-Middle: ARP Cache Poisoning (T1557.002)**  
     The attacker's position in the network allows the collection of data such as session tokens, HTTP requests, and transmitted files.
 
-
+ 
 ## Credits
 
 - I have drawn inspiration for this attack from [this](https://www.youtube.com/watch?v=xrK6KA9yzQE) video tutorial.

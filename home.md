@@ -6,11 +6,15 @@ BetterCAP is a powerful, flexible and portable tool created to perform various t
 
 ![Photo of Mountain](images/mountain.jpg)
 
-[Docsify](https://docsify.js.org/#/) can generate article, portfolio and documentation websites on the fly. Unlike Docusaurus, Hugo and many other Static Site Generators (SSG), it does not generate static html files. Instead, it smartly loads and parses your Markdown content files and displays them as a website.
+## Attack Setup
 
-## Introduction
+This report describes an ARP spoofing attack carried out in a controlled environment using two virtual machines:
 
-**Markdown** is a system-independent markup language that is easier to learn and use than **HTML**.
+ - Attacker: Kali Linux (with Bettercap)
+
+ - Victim: Ubuntu Linux
+   The goal of the experiment was to demonstrate how an attacker can intercept or manipulate traffic between two devices on a local network using ARP spoofing.
+
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)
 

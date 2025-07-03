@@ -38,8 +38,8 @@ ARP Spoofing is an attack where a malicious actor sends falsified ARP messages t
 
 - The victim continued to access the internet unaware of the interception.
 - The attacker was able to:
- - See plaintext HTTP traffic.
- - Capture login credentials (on insecure services).
+- - See plaintext HTTP traffic.
+- - Capture login credentials (on insecure services).
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)
 

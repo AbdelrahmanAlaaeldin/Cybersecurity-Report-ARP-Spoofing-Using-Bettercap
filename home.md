@@ -69,16 +69,20 @@ The necessary Threat Model for this attack entails the adversary possessing the 
 
 ## 5. Threat Modeling Using MITRE ATT&CK
 
-The following table maps the ARP spoofing attack and its implications to the MITRE ATT&CK framework. It highlights the relevant tactics, techniques, and IDs associated with this type of attack:
+This ARP spoofing attack aligns with the following techniques and tactics from the MITRE ATT&CK framework (Enterprise v11):
 
-| Tactic              | Technique                                  | ID             | Description                                                                 |
-|---------------------|---------------------------------------------|----------------|-----------------------------------------------------------------------------|
-| Reconnaissance      | Network Sniffing                            | T1040          | Bettercap captures traffic after spoofing, used to gather credentials or data. |
-| Initial Access       | ARP Spoofing (Man-in-the-Middle)           | T1557.002      | The attacker poisons ARP tables to position themselves between devices.     |
-| Credential Access    | Input Capture: Network Sniffing            | T1056.001 + T1040 | The attacker captures sensitive data (e.g., passwords) from intercepted traffic. |
-| Collection           | Data from Network Shared Drive or Traffic  | T1039          | If SMB or other sharing protocols are in use, shared files can be accessed. |
-| Command and Control  | Proxy (used to relay traffic)              | T1090.002      | Redirected victim traffic can be proxied to another attacker-controlled system. |
-| Impact               | Network Denial of Service (DoS)            | T1499.001      | If IP forwarding is disabled, the spoofing may cause service interruption.   |
+- **Tactic: Credential Access**
+  - **Technique: Adversary-in-the-Middle: ARP Cache Poisoning (T1557.002)**  
+    The attacker poisons the ARP cache to intercept network traffic and gain access to sensitive credentials.  
+    [Learn more](https://attack.mitre.org/techniques/T1557/002)
+
+  - **Technique: Network Sniffing (T1040)**  
+    Once in a man-in-the-middle position, the attacker captures unencrypted data, including usernames and passwords.  
+    [Learn more](https://attack.mitre.org/techniques/T1040)
+
+- **Tactic: Collection**
+  - **Technique: Adversary-in-the-Middle: ARP Cache Poisoning (T1557.002)**  
+    The attacker's position in the network allows the collection of data such as session tokens, HTTP requests, and transmitted files.
 
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)

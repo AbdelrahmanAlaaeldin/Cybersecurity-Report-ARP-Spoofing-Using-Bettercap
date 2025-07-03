@@ -32,9 +32,9 @@ The necessary Threat Model for this attack entails the adversary possessing the 
 
       - The network does not implement protections like:
 
-             - Dynamic ARP Inspection (DAI)
-             - Static ARP entries
-             - Port security or VLAN isolation
+           - Dynamic ARP Inspection (DAI)
+           - Static ARP entries
+           - Port security or VLAN isolation
 
 4. Sufficient Privileges
 

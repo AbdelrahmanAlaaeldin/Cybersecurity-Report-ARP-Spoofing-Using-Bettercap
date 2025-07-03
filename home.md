@@ -139,7 +139,7 @@ The necessary Threat Model for this attack entails the adversary possessing the 
      - Capture login credentials (on insecure services).
  
 
-## 5. Threat Modeling Using MITRE ATT&CK
+## MITRE ATT&CK model
 
 This ARP spoofing attack aligns with the following techniques and tactics from the MITRE ATT&CK framework (Enterprise v11):
 

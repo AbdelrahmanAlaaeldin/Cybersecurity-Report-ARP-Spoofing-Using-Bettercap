@@ -13,8 +13,34 @@ This report describes an ARP spoofing attack carried out in a controlled environ
  - Attacker: Kali Linux (with Bettercap)
 
  - Victim: Ubuntu Linux
+   
    The goal of the experiment was to demonstrate how an attacker can intercept or manipulate traffic between two devices on a local network using ARP spoofing.
 
+## What is ARP Spoofing?
+
+ARP (Address Resolution Protocol) is used to map IP addresses to MAC (hardware) addresses on a local network. When a device wants to communicate with another, it sends an ARP request and the device with that IP replies with its MAC address.
+
+ARP Spoofing is an attack where a malicious actor sends falsified ARP messages to a LAN. The attacker associates their MAC address with the IP address of another device (such as the gateway or a target machine), causing traffic to be misdirected.
+
+## Purpose of ARP Spoofing
+
+- Adversary-in-the-Middle (AitM): Intercept, read, or modify traffic.
+
+- Denial of Service (DoS): Disrupt communication between devices.
+
+- Credential theft or session hijacking: Capture sensitive data.
+
+## Attack Execution
+
+
+
+## Observed Impact
+
+The victim continued to access the internet unaware of the interception.
+
+The attacker was able to:
+ - See plaintext HTTP traffic.
+ - Capture login credentials (on insecure services).
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)
 

@@ -1,6 +1,8 @@
-# My Open Publishing Space
+# Cybersecurity Report: ARP Spoofing Using Bettercap
 
-## Create, Share and Collaborate
+## Introduction
+
+BetterCAP is a powerful, flexible and portable tool created to perform various types of MITM attacks against a network, manipulate HTTP, HTTPS and TCP traffic in realtime, sniff for credentials and much more.
 
 ![Photo of Mountain](images/mountain.jpg)
 

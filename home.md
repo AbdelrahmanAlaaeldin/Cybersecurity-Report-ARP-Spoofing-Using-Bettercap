@@ -16,34 +16,6 @@ This report describes an ARP spoofing attack carried out in a controlled environ
    
    The goal of the experiment was to demonstrate how an attacker can intercept or manipulate traffic between two devices on a local network using ARP spoofing.
 
-## Threat Model
-
-The necessary Threat Model for this attack entails the adversary possessing the following capabilities:
-
- 1. Local Network Access
-      - The attacker must be connected to the same local network as the victim (e.g., same Wi-Fi or LAN segment).
-      - This may be achieved through physical access (e.g., connecting to an open or weakly protected network) or remote compromise of a device already on the   network.
-
-2. Network Interface in Promiscuous Mode
-
-      - The attacker's machine must be able to listen to all packets on the network segment, which is typically possible on switched networks only after successful ARP spoofing.
-
-4. No Network Isolation or ARP Inspection
-
-      - The network does not implement protections like:
-
-           - Dynamic ARP Inspection (DAI)
-           - Static ARP entries
-           - Port security or VLAN isolation
-
-4. Sufficient Privileges
-
-      - The attacker has administrative (root) privileges on their machine to run tools like Bettercap and enable IP forwarding.
-
-6. No Encryption on Target Services
-
-      - For traffic to be interpretable (e.g., seeing credentials), the victim must be using insecure protocols (like HTTP, FTP, etc.).
-
 ## What is ARP Spoofing?
 
 ARP (Address Resolution Protocol) is used to map IP addresses to MAC (hardware) addresses on a local network. When a device wants to communicate with another, it sends an ARP request and the device with that IP replies with its MAC address.
@@ -62,12 +34,52 @@ ARP Spoofing is an attack where a malicious actor sends falsified ARP messages t
 
 
 
+
+## Threat Model
+
+The necessary Threat Model for this attack entails the adversary possessing the following capabilities:
+
+ 1. Local Network Access
+      - The attacker must be connected to the same local network as the victim (e.g., same Wi-Fi or LAN segment).
+      - This may be achieved through physical access (e.g., connecting to an open or weakly protected network) or remote compromise of a device already on the   network.
+
+2. No Network Isolation or ARP Inspection
+
+      - The network does not implement protections like:
+
+           - Dynamic ARP Inspection (DAI)
+           - Static ARP entries
+           - Port security or VLAN isolation
+
+3. Sufficient Privileges
+
+      - The attacker has administrative (root) privileges on their machine to run tools like Bettercap and enable IP forwarding.
+
+4. No Encryption on Target Services
+
+      - For traffic to be interpretable (e.g., seeing credentials), the victim must be using insecure protocols (like HTTP, FTP, etc.).
+
 ## Observed Impact
 
 - The victim continued to access the internet unaware of the interception.
 - The attacker was able to:
      - See plaintext HTTP traffic.
      - Capture login credentials (on insecure services).
+ 
+
+## 5. Threat Modeling Using MITRE ATT&CK
+
+The following table maps the ARP spoofing attack and its implications to the MITRE ATT&CK framework. It highlights the relevant tactics, techniques, and IDs associated with this type of attack:
+
+| Tactic              | Technique                                  | ID             | Description                                                                 |
+|---------------------|---------------------------------------------|----------------|-----------------------------------------------------------------------------|
+| Reconnaissance      | Network Sniffing                            | T1040          | Bettercap captures traffic after spoofing, used to gather credentials or data. |
+| Initial Access       | ARP Spoofing (Man-in-the-Middle)           | T1557.002      | The attacker poisons ARP tables to position themselves between devices.     |
+| Credential Access    | Input Capture: Network Sniffing            | T1056.001 + T1040 | The attacker captures sensitive data (e.g., passwords) from intercepted traffic. |
+| Collection           | Data from Network Shared Drive or Traffic  | T1039          | If SMB or other sharing protocols are in use, shared files can be accessed. |
+| Command and Control  | Proxy (used to relay traffic)              | T1090.002      | Redirected victim traffic can be proxied to another attacker-controlled system. |
+| Impact               | Network Denial of Service (DoS)            | T1499.001      | If IP forwarding is disabled, the spoofing may cause service interruption.   |
+
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)
 

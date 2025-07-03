@@ -74,15 +74,22 @@ This ARP spoofing attack aligns with the following techniques and tactics from t
 - **Tactic: Credential Access**
   - **Technique: Adversary-in-the-Middle: ARP Cache Poisoning (T1557.002)**  
     The attacker poisons the ARP cache to intercept network traffic and gain access to sensitive credentials.  
-    [Learn more](https://attack.mitre.org/techniques/T1557/002)
+    
 
   - **Technique: Network Sniffing (T1040)**  
-    Once in a man-in-the-middle position, the attacker captures unencrypted data, including usernames and passwords.  
-    [Learn more](https://attack.mitre.org/techniques/T1040)
+    Once in an adversary-in-the-middle position, the attacker captures unencrypted data, including usernames and passwords.  
+    
 
 - **Tactic: Collection**
   - **Technique: Adversary-in-the-Middle: ARP Cache Poisoning (T1557.002)**  
     The attacker's position in the network allows the collection of data such as session tokens, HTTP requests, and transmitted files.
+
+
+## Credits
+
+- I have drawn inspiration for this attack from this video tutorial.
+- (https://attack.mitre.org/)
+- (https://www.bettercap.org/)
 
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)

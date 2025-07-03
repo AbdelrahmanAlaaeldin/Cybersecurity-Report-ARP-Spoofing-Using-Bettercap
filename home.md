@@ -16,6 +16,34 @@ This report describes an ARP spoofing attack carried out in a controlled environ
    
    The goal of the experiment was to demonstrate how an attacker can intercept or manipulate traffic between two devices on a local network using ARP spoofing.
 
+## Threat Model
+
+The necessary Threat Model for this attack entails the adversary possessing the following capabilities:
+
+ 1. Local Network Access
+      - The attacker must be connected to the same local network as the victim (e.g., same Wi-Fi or LAN segment).
+      - This may be achieved through physical access (e.g., connecting to an open or weakly protected network) or remote compromise of a device already on the   network.
+
+2. Network Interface in Promiscuous Mode
+
+      - The attacker's machine must be able to listen to all packets on the network segment, which is typically possible on switched networks only after successful ARP spoofing.
+
+4. No Network Isolation or ARP Inspection
+
+      - The network does not implement protections like:
+
+             - Dynamic ARP Inspection (DAI)
+             - Static ARP entries
+             - Port security or VLAN isolation
+
+4. Sufficient Privileges
+
+      - The attacker has administrative (root) privileges on their machine to run tools like Bettercap and enable IP forwarding.
+
+6. No Encryption on Target Services
+
+      - For traffic to be interpretable (e.g., seeing credentials), the victim must be using insecure protocols (like HTTP, FTP, etc.).
+
 ## What is ARP Spoofing?
 
 ARP (Address Resolution Protocol) is used to map IP addresses to MAC (hardware) addresses on a local network. When a device wants to communicate with another, it sends an ARP request and the device with that IP replies with its MAC address.

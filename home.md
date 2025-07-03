@@ -87,9 +87,9 @@ This ARP spoofing attack aligns with the following techniques and tactics from t
 
 ## Credits
 
-- I have drawn inspiration for this attack from this video tutorial.
-- (https://attack.mitre.org/)
-- (https://www.bettercap.org/)
+- I have drawn inspiration for this attack from [this](https://www.youtube.com/watch?v=xrK6KA9yzQE) video tutorial.
+- https://attack.mitre.org/
+- https://www.bettercap.org/
 
 
 ![Figure 1: The Markdown Mark](images/markdown-red.png)
